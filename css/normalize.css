@@ -517,3 +517,45 @@ body {
     content: "";
     line-height: 0;
 }
+
+
+
+.t-img li {
+    height: 500px;
+    /* 看不见图片 */
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    transition: opacity 1.5s;
+  }
+.t-img li.ac {
+    z-index: 5;
+    opacity: 1;
+  }
+.banner_index {
+    position: absolute;
+    right: 10%;
+    bottom: 10px;
+    z-index: 6
+  }
+
+  .banner_index li {
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    margin-left: 5px;
+    float: left;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+  }
+ .banner_index li.ac {
+    background: red;
+    color: #fff;
+  }
+  .arrow-l,.arrow-r{
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 6;
+  }

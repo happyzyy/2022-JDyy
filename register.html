@@ -6,8 +6,7 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/register.css" />
-    <script src="js/jquery.min.js"></script>
-    <script src="js/register.js"></script>
+  
 </head>
 <body>
     <div class="w">
@@ -23,17 +22,17 @@
                 <form>
                     <ul>
                         <li>
-                            <label for="tel">手机号：</label>
+                            <label for="tel">用户名：</label>
                             <input type="text" class="inp" id="tel">
                             <span class="hint">
                                 <i class="hint_icon"></i>
-                                <em>请输入11位手机号码!</em>
+                                <em>请输入用户名!</em>
                             </span>
                         </li>
-                        <li>
+                        <!-- <li>
                             <label for="code">短信验证码：</label>
                             <input type="text" class="inp" id="code">
-                        </li>
+                        </li> -->
                         <li class="password">
                             <label for="psw">登录密码：
                                 <img src="images/close.png" width="24px" alt="">
@@ -58,6 +57,14 @@
                             <span class="hint">
                                 <i class="hint_icon"></i>
                                 <em>请再次输入密码!</em>
+                            </span>
+                        </li>
+                        <li>
+                            <label for="nickname">用户昵称：</label>
+                            <input type="text" class="inp" id="nickname">
+                            <span class="hint">
+                                <i class="hint_icon"></i>
+                                <em>想个昵称</em>
                             </span>
                         </li>
                         <li class="agree">
@@ -89,5 +96,10 @@
             <p class="copyright">Copyright©2004-2019  京东JD.com 版权所有</p>
         </div>
     </div>
+    <script src="js/axios.js"></script>
+    <script src="js/register.js"></script>
+    <script src="./lib/jquery-2.2.4.js"></script>
+    <script src="./lib/layer/layer.js"></script>
+
 </body>
 </html>

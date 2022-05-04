@@ -1,0 +1,583 @@
+<!DOCTYPE html
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires-Type" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" CONTENT="no-cache" />
+    <title>账户信息</title>
+    <link type="text/css" rel="stylesheet"
+        href="./css/sefl-base.css" />
+     <!-- <script type="text/javascript"
+        src="//misc.360buyimg.com/jdf/1.0.0/unit/??base/5.0.0/base.js,basePatch/1.0.0/basePatch.js"></script> -->
+   <link rel="stylesheet" type="text/css" href="./css/self-360.css" media="all"> 
+    <link type="text/css" rel="stylesheet" href="./css/self-common.css"
+        source="widget" />
+     <!-- <script type="text/javascript"
+        src="//misc.360buyimg.com/jdf/??lib/jquery-1.6.4.js,1.0.0/unit/libPath/1.0.0/libPath.js"></script> -->
+
+</head>
+
+<!--set|info-->
+
+<body myjd="_MYJD_info" menuId="set">
+    <!--shortcut start-->
+    <div id="shortcut-2014">
+        <div class="w">
+            <ul class="fl">
+                <li id="ttbar-home"><i class="iconfont">&#xe608;</i><a href="./index.html" target="_blank">京东首页</a></li>
+                <li class="dorpdown" id="ttbar-mycity"></li>
+            </ul>
+            <ul class="fr">
+                <li class="fore1" id="ttbar-login">
+                    <a href="javascript:login();" class="link-login">你好，请登录</a>&nbsp;&nbsp;<a
+                        href="javascript:regist();" class="link-regist style-red">免费注册</a>
+                </li>
+                <li class="spacer"></li>
+                <li class="fore2">
+                    <div class="dt">
+                        <a target="_blank" href="./cart.html">我的订单</a>
+                    </div>
+                </li>
+                <li class="spacer"></li>
+                <li class="fore3 dorpdown" id="ttbar-myjd">
+                    <div class="dt cw-icon">
+                        <!-- <i class="ci-right"><s>◇</s></i> -->
+                        <a target="_blank" href="./index.html">我的京东</a><i class="iconfont">&#xe605;</i>
+                    </div>
+                    <div class="dd dorpdown-layer"></div>
+                </li>
+                <li class="spacer"></li>
+                <li class="fore4" id="ttbar-member">
+                    <div class="dt">
+                        <a target="_blank" href="#">京东会员</a>
+                    </div>
+                </li>
+                <li class="spacer"></li>
+                <li class="fore5" id="ttbar-ent">
+                    <div class="dt">
+                        <a target="_blank" href="#">企业采购</a>
+                    </div>
+                </li>
+                <li class="spacer"></li>
+                <li class="fore6 dorpdown" id="ttbar-serv">
+                    <div class="dt cw-icon">
+                        <!-- <i class="ci-right"><s>◇</s></i> -->
+                        客户服务<i class="iconfont">&#xe605;</i>
+                    </div>
+                    <div class="dd dorpdown-layer"></div>
+                </li>
+                <li class="spacer"></li>
+                <li class="fore7 dorpdown" id="ttbar-navs">
+                    <div class="dt cw-icon">
+                        <!-- <i class="ci-right"><s>◇</s></i> -->
+                        网站导航<i class="iconfont">&#xe605;</i>
+                    </div>
+                    <div class="dd dorpdown-layer"></div>
+                </li>
+                <li class="spacer"></li>
+                <li class="fore8 dorpdown" id="ttbar-apps">
+                    <div class="dt cw-icon">
+                        <!-- <i class="ci-left"></i> -->
+                        <!-- <i class="ci-right"><s>◇</s></i> -->
+                        <a target="_blank" href="#">手机京东</a>
+                    </div>
+                </li>
+            </ul>
+            <span class="clr"></span>
+        </div>
+    </div>
+    <div id="o-header-2013">
+        <div id="header-2013" style="display:none;"></div>
+    </div>
+    <!--shortcut end-->
+
+    <div id="nav">
+        <div class="w">
+            <div class="logo">
+                <a href="./index.html" target="_blank" class="fore1" clstag="homepage|keycount|home2013|Homejdlogo"></a>
+                <a href="./index.html" target="_self" class="fore2"
+                    clstag="homepage|keycount|home2013|Homebackm">我的京东</a>
+                <a href="./index.html" target="_blank" class="fore3"
+                    clstag="homepage|keycount|home2013|Homebackjd">返回京东首页</a>
+            </div>
+            <div class="navitems">
+                <ul>
+                    <li class="fore-1">
+                        <a target="_self" href="./index.html" clstag="homepage|keycount|home2013|Homeindex">首页</a>
+                    </li>
+                    <li class="fore-3">
+                        <div class="dl" clstag="click|keycount|myhome|hsz">
+                            <div class="dt">
+                                <span class="rpwd" onclick="Self.rpwdFn()">修改密码</span>
+                                <b></b>
+                            </div>
+                            <div class="dd">
+
+                                <a tid="_MYJD_info" clstag="Homeyser" href="./self.html"
+                                    target="_self"><span>个人信息</span></a>
+
+                                <a tid="_MYJD_safe" clstag="Homesafe" href="//aq.jd.com/process/center?s=1"
+                                    target="_self"><span>账户安全</span></a>
+                                <a tid="_MYJD_wdcm" clstag="Homewdcm" href="#" target="_self"><span>我的尺码</span></a>
+                                <a tid="_MYJD_accbinde" clstag="Homezhbd" href="#" target="_self"><span>账号绑定</span></a>
+
+
+                                <!--                     
+                    <a tid="_MYJD_comments" clstag="homeadd" href="//easybuy.jd.com/address/getEasyBuyList.action" target="_self"><span>收货地址</span></a>
+                    <a tid="_MYJD_yyrxx" clstag="homeyyrxx" href="//patient.jd.com/patientInfo" target="_self"><span>健康档案</span></a>
+                    <a tid="_MYJD_share" clstag="Homeshare" href="//share.jd.com/share/index.html" target="_self"><span>分享绑定</span></a>
+                    
+                    <a tid="_MYJD_rss" clstag="Homeedm" href="//i-mkt.jd.com/subscribe/settings" target="_self"><span>邮件订阅</span></a>
+                    
+                    
+                    
+                    <a tid="_MYJD_app" clstag="Homeedm" href="//open.jd.com/home/home#/authorization" target="_blank"><span>授权管理</span></a>
+                    
+                    <a tid="_MYJD_pay" clstag="Homequick" href="https://authpay.jd.com/card/queryBindCard.action" target="_blank"><span>我的银行卡</span></a>
+                    
+                    <a tid="_MYJD_zpzz" clstag="Homezpzz" href="//invoice.jd.com/user/userinfo/zpzz.html" target="_self"><span>增票资质</span></a> -->
+                                <a tid="_MYJD_qyfp" clstag="Homeqyfp" href="#" target="_self"><span>企业发票</span></a>
+                                <a tid="_MYJD_cgxqd" clstag="Homecgxqd" href="#" target="_self"><span>采购需求单</span></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="fore-4">
+                        <div class="dl myjd-info" clstag="click|keycount|myhome|comments">
+                            <div class="dt ">
+                                <span>评价</span>
+                                <b></b>
+                            </div>
+                            <div class="dd">
+                                <!-- <a tid="_MYJD_mycomments0" clstag="HomeComments0" href="//club.jd.com/myJdcomments/myJdcomment.action" target="_self"><span>待评价</span></a>
+                    <a tid="_MYJD_mycomments4" clstag="HomeComments4" href="//club.jd.com/myJdcomments/myJdcomment.action?sort=4" target="_self"><span>服务评价</span></a>
+                    <a tid="_MYJD_mycomments3" clstag="HomeComments3" href="//club.jd.com/myJdcomments/myJdcomment.action?sort=3" target="_self"><span>待追评</span></a>
+                    <a tid="_MYJD_mycomments2" clstag="HomeComments2" href="//club.jd.com/myJdcomments/myJdcomment.action?sort=2" target="_self"><span>已评价</span></a> -->
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-r">
+                <div id="search-2014">
+                    <ul id="shelper" class="hide"></ul>
+                    <div class="form">
+                        <input type="text" onkeydown="javascript:if(event.keyCode==13) search('key');"
+                            autocomplete="off" id="key" accesskey="s" class="text" />
+                        <button onclick="search('key');return false;" class="button cw-icon"
+                            type="button"><i></i>搜索</button>
+                    </div>
+                </div>
+                <div id="settleup-2014" class="dorpdown">
+                    <div class="cw-icon">
+                        <i class="ci-left"></i>
+                        <i class="ci-right">></i>
+                        <a target="_blank" href="//cart.jd.com/cart.action">我的购物车</a>
+                    </div>
+                    <div class="dorpdown-layer">
+                        <div class="spacer"></div>
+                        <div id="settleup-content">
+                            <span class="loading"></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="hotwords-2014"></div>
+            </div>
+            <div class="clr"></div>
+        </div>
+    </div>
+
+    <!--container start-->
+
+    <div id="container">
+        <div class="w">
+            <div id="content">
+                <div id="sub">
+                </div>
+
+                <div id="main">
+                    <div class="mod-main">
+                        <div class="mt">
+                            <ul class="extra-l">
+                                <li class="fore-1"><a class="curr" href="//i.jd.com/user/info">基本信息</a></li>
+                                <li class="fore-2"><a href="//i.jd.com/user/userinfo/showImg.html">头像照片</a></li>
+                                <li class="fore-3"><a href="//i.jd.com/user/userinfo/more.html">更多个人信息</a></li>
+
+                            </ul>
+                        </div>
+                        <div class="mc">
+                            <div class="user-set userset-lcol">
+                                <div class="form">
+                                    <div class="item">
+                                        <span class="label">用户名：</span>
+                                        <div class="fl">
+                                            <div><strong class="username1">jd_HaOuyltowsSa</strong></div>
+                                        </div>
+                                    </div>
+                                    <div class="item" id="aliasArea">
+                                        <span class="label"><em>*</em>登录名：</span>
+                                        <div class="fl" id="aliasBefore">
+                                            <input clstag="homepage|keycount|home2013|infoname" type="text" class="itxt username"
+                                            maxlength="20" id="nickName" name="userVo.nickName"
+                                            value="jd_HaOuyltowsSat">
+                                            <!-- <a href="javascript:void(0)" class="ftx-05 ml10" onclick="changeAliasName()"
+                                                clstag="pageclick|keycount|201602251|1">修改</a> -->
+                                            <span class="ftx03">可用于登录，请牢记哦~</span>
+                                            <div class="clr"></div>
+                                            <div class="prompt-06"><span id="aliasNameBefore_msg"></span></div>
+                                        </div>
+                                        
+
+                                    </div>
+                                    <div class="item">
+                                        <span class="label"><em>*</em>昵称：</span>
+                                        <div class="fl">
+                                            <input id="code" value="" style="display:none" />
+                                            <input id="rkey" value="" style="display:none" />
+                                            <input clstag="homepage|keycount|home2013|infoname" type="text" class="itxt nickname"
+                                                maxlength="20" id="nickName" name="userVo.nickName"
+                                                value="jd_HaOuyltowsSat">
+                                            <div class="clr"></div>
+                                            <div class="prompt-06"><span id="nickName_msg"></span></div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <span class="label">性别：</span>
+                                        <div class="fl" clstag="homepage|keycount|home2013|infoGender">
+                                            <input type="radio" name="sex" class="jdradio gender1" value="0"><label
+                                                class="mr10 ">男</label>
+                                            <input type="radio" name="sex" class="jdradio gender2" value="1"><label
+                                                class="mr10 ">女</label>
+                                            <!-- <input type="radio" name="sex" class="jdradio" value="2"><label
+                                                class="mr10">保密</label> -->
+                                        </div>
+                                    </div>
+                                    <div class="item" clstag="homepage|keycount|home2013|infoBirthday">
+                                        <span class="label">年龄：</span>
+                                        <div class="fl birthday-info">
+                                            <input clstag="homepage|keycount|home2013|infoname" type="text" class="itxt age"
+                                            maxlength="20" id="nickName" name="userVo.nickName"
+                                            value="0">
+                                            <span class="ftx03">填生日有惊喜哦~</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="item">
+                                        <span class="label">兴趣爱好：</span>
+                                        <div class="fl interest-list">
+                                            <p>请选择您感兴趣的分类，给您最精准的推荐</p>
+                                            <ul class="hobul" clstag="homepage|keycount|home2013|infoInterest">
+                                                <li name="hobbyType" class="i-li" value="1">
+                                                    <div class="li-item">图书音像/电子书刊<s></s></div>
+                                                </li>
+                                                <li name="hobbyType" class="i-li" value="2">
+                                                    <div class="li-item">家用电器<s></s></div>
+                                                </li>
+                                                <li name="hobbyType" class="i-li" value="3">
+                                                    <div class="li-item">手机/数码<s></s></div>
+                                                </li>
+                                                <li name="hobbyType" class="i-li" value="4">
+                                                    <div class="li-item">电脑/办公<s></s></div>
+                                                </li>
+                                                <li name="hobbyType" class="i-li" value="5">
+                                                    <div class="li-item">家居/家具/家装/厨具<s></s></div>
+                                                </li>
+                                                <li name="hobbyType" class="i-li" value="6">
+                                                    <div class="li-item">服饰内衣/珠宝首饰<s></s></div>
+                                                </li>
+                                                <li name="hobbyType" class="i-li" value="7">
+                                                    <div class="li-item">个护化妆<s></s></div>
+                                                </li>
+                                                <li name="hobbyType" class="i-li" value="8">
+                                                    <div class="li-item">鞋靴/箱包/钟表/奢侈品<s></s></div>
+                                                </li>
+                                                <li name="hobbyType" class="i-li" value="9">
+                                                    <div class="li-item">运动健康<s></s></div>
+                                                </li>
+                                                <li name="hobbyType" class="i-li" value="10">
+                                                    <div class="li-item">汽车用品<s></s></div>
+                                                </li>
+                                                <li name="hobbyType" class="i-li" value="11">
+                                                    <div class="li-item">母婴/玩具乐器<s></s></div>
+                                                </li>
+                                                <li name="hobbyType" class="i-li" value="12">
+                                                    <div class="li-item">食品饮料/保健食品<s></s></div>
+                                                </li>
+                                                <li name="hobbyType" class="i-li" value="13">
+                                                    <div class="li-item">彩票/旅行/充值/票务<s></s></div>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <!--
+                        <div class="item" clstag="homepage|keycount|home2013|infoadd">
+                            <span class="label">所在地：</span>
+                            <div class="fl">
+                                <select name="userVo.province" class="selt mr5" id="province">
+                                                                            </select>
+                                <select name="userVo.city" class="selt mr5" id="city">
+                                </select>
+                                <select name="userVo.county" class="selt mr5"  id="county">
+                                </select>
+                                <div class="clr"></div><div class="prompt-06"><span id="city_msg"></span></div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <span class="label">&nbsp;</span>
+                            <div class="fl">
+                                <input clstag="homepage|keycount|home2013|infoadd" type="text" class="itxt itxt1" name="userVo.address" id="address" value="">
+                                <div class="clr"></div><div class="prompt-06"><span id="address_msg"></span></div>
+                            </div>
+                        </div>
+                        -->
+                                    <div class="item">
+                                        <span class="label">&nbsp;</span>
+                                        <div class="fl">
+
+                                            <a clstag="homepage|keycount|home2013|infobtn" href="javascript:void(0)"
+                                                class="btn-5 formBtn" onclick="Self.updateUserInfo()">提交</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="user-info">
+                                <div class="u-pic">
+                                    <img alt="用户头像" src="./images/no_login.jpg">
+                                    <div class="mask"></div>
+                                    <div class="face-link-box"></div>
+                                    <a href="//i.jd.com/user/userinfo/showImg.html" class="face-link">修改头像</a>
+                                </div>
+                                <div class="info-m">
+                                    <div><B class="username2">用户名：jd_HaOuyltowsSa</B></div>
+
+                                    <!--<div class="shop-level">购物行为评级：<span><a target="_blank" href="//vip.jd.com/help_behaviorRating.html">
+                            <s id="userCredit" class="rank-sh rank-sh01"></s></a></span></div> -->
+                                    <div class="u-level">
+                                        <span class="rank jxz">
+                                            <s></s><a href="//vip.jd.com" target="_blank" title="1002">京享值1002</a>
+                                        </span>
+
+                                    </div>
+                                    <div clstag="pageclick|keycount|201602251|4">小白信用：<a href="//credit.jd.com"
+                                            target="_blank">-.-</a></div>
+                                    <div>会员类型：个人用户</div>
+                                </div>
+                            </div>
+                            <div class="fr ac" style="width:280px;">
+                                注：修改手机和邮箱请到<a clstag="homepage|keycount|home2013|infopay" class="ml5 ftx05"
+                                    href="//aq.jd.com/process/center?s=1">账户安全</a>
+                            </div>
+                            <div class="clr"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--container end-->
+
+    <!--service start-->
+    <div id="service-2017">
+        <div class="w">
+            <ol class="slogen">
+                <li class="item fore1">
+                    <i>多</i>品类齐全，轻松购物
+                </li>
+                <li class="item fore2">
+                    <i>快</i>多仓直发，极速配送
+                </li>
+                <li class="item fore3">
+                    <i>好</i>正品行货，精致服务
+                </li>
+                <li class="item fore4">
+                    <i>省</i>天天低价，畅选无忧
+                </li>
+            </ol>
+        </div>
+        <div class="jd-help">
+            <div class="w">
+                <div class="wrap">
+                    <dl class="fore1">
+                        <dt>购物指南</dt>
+                        <dd><a rel="nofollow" target="_blank" href="//help.jd.com/user/issue/list-29.html">购物流程</a></dd>
+                        <dd><a rel="nofollow" target="_blank" href="//help.jd.com/user/issue/list-151.html">会员介绍</a>
+                        </dd>
+                        <dd><a rel="nofollow" target="_blank" href="//help.jd.com/user/issue/list-297.html">生活旅行/团购</a>
+                        </dd>
+                        <dd><a rel="nofollow" target="_blank" href="//help.jd.com/user/issue.html">常见问题</a></dd>
+                        <dd><a rel="nofollow" target="_blank" href="//help.jd.com/user/issue/list-136.html">大家电</a></dd>
+                        <dd><a rel="nofollow" target="_blank" href="//help.jd.com/user/custom.html">联系客服</a></dd>
+                    </dl>
+                    <dl class="fore2">
+                        <dt>配送方式</dt>
+                        <dd><a rel="nofollow" target="_blank" href="//help.jd.com/user/issue/list-81-100.html">上门自提</a>
+                        </dd>
+                        <dd><a rel="nofollow" target="_blank" href="//help.jd.com/user/issue/list-81.html">211限时达</a>
+                        </dd>
+                        <dd><a rel="nofollow" target="_blank" href="//help.jd.com/user/issue/103-983.html">配送服务查询</a>
+                        </dd>
+                        <dd><a rel="nofollow" target="_blank" href="//help.jd.com/user/issue/109-188.html">配送费收取标准</a>
+                        </dd>
+                        <dd><a target="_blank" href="//help.joybuy.com/help/question-list-201.html">海外配送</a></dd>
+                    </dl>
+                    <dl class="fore3">
+                        <dt>支付方式</dt>
+                        <dd><a rel="nofollow" target="_blank" href="//help.jd.com/user/issue/list-172.html">货到付款</a>
+                        </dd>
+                        <dd><a rel="nofollow" target="_blank" href="//help.jd.com/user/issue/list-173.html">在线支付</a>
+                        </dd>
+                        <dd><a rel="nofollow" target="_blank" href="//help.jd.com/user/issue/list-176.html">分期付款</a>
+                        </dd>
+                        <dd><a rel="nofollow" target="_blank" href="//help.jd.com/user/issue/list-175.html">公司转账</a>
+                        </dd>
+                    </dl>
+                    <dl class="fore4">
+                        <dt>售后服务</dt>
+                        <dd><a rel="nofollow" target="_blank" href="//help.jd.com/user/issue/list-112.html">售后政策</a>
+                        </dd>
+                        <dd><a rel="nofollow" target="_blank" href="//help.jd.com/user/issue/list-132.html">价格保护</a>
+                        </dd>
+                        <dd><a rel="nofollow" target="_blank" href="//help.jd.com/user/issue/130-978.html">退款说明</a></dd>
+                        <dd><a rel="nofollow" target="_blank" href="//myjd.jd.com/repair/repairs.action">返修/退换货</a></dd>
+                        <dd><a rel="nofollow" target="_blank" href="//help.jd.com/user/issue/list-50.html">取消订单</a></dd>
+                    </dl>
+                    <dl class="fore5">
+                        <dt>特色服务</dt>
+                        <dd><a target="_blank" href="//1paipai.jd.com">夺宝岛</a></dd>
+                        <dd><a target="_blank" href="//help.jd.com/user/issue/list-134.html">DIY装机</a></dd>
+                        <dd><a rel="nofollow" target="_blank" href="//fuwu.jd.com/">延保服务</a></dd>
+                        <dd><a rel="nofollow" target="_blank" href="//o.jd.com/market/index.action">京东E卡</a></dd>
+                        <dd><a rel="nofollow" target="_blank" href="//mobile.jd.com/">京东通信</a></dd>
+                        <dd><a rel="nofollow" target="_blank" href="//smart.jd.com/">京鱼座智能</a></dd>
+                    </dl>
+                    <span class="clr"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--service end-->
+
+    <!--footer start-->
+    <div id="footer-2017" Includefile_Footer_id="1002">
+        <div class="w">
+            <div class="copyright_links">
+                <p>
+                    <a href="//about.jd.com" target="_blank">关于我们</a><span class="copyright_split">|</span>
+                    <a href="//about.jd.com/contact/" target="_blank">联系我们</a><span class="copyright_split">|</span>
+                    <a href="//help.jd.com/user/custom.html" target="_blank">联系客服</a><span
+                        class="copyright_split">|</span>
+                    <a href="//lai.jd.com" target="_blank">合作招商</a><span class="copyright_split">|</span>
+                    <a href="//helpcenter.jd.com/venderportal/index.html" target="_blank">商家帮助</a><span
+                        class="copyright_split">|</span>
+                    <a href="//jzt.jd.com" target="_blank">营销中心</a><span class="copyright_split">|</span>
+                    <a href="//app.jd.com/" target="_blank">手机京东</a><span class="copyright_split">|</span>
+                    <a href="//club.jd.com/links.aspx" target="_blank">友情链接</a><span class="copyright_split">|</span>
+                    <a href="//media.jd.com/" target="_blank">销售联盟</a><span class="copyright_split">|</span>
+                    <a href="//pro.jd.com/mall/active/3WA2zN8wkwc9fL9TxAJXHh5Nj79u/index.html"
+                        target="_blank">京东社区</a><span class="copyright_split">|</span>
+                    <a href="//pro.jd.com/mall/active/3TF25tMdrnURET8Ez1cW9hzfg3Jt/index.html"
+                        target="_blank">风险监测</a><span class="copyright_split">|</span>
+                    <a href="//about.jd.com/privacy/" target="_blank">隐私政策</a><span class="copyright_split">|</span>
+                    <a href="//gongyi.jd.com" target="_blank">京东公益</a><span class="copyright_split">|</span>
+                    <a href="//www.joybuy.com/" target="_blank">English Site</a><span class="copyright_split">|</span>
+                    <a href="//corporate.jd.com/" target="_blank">Media & IR</a>
+                </p>
+            </div>
+            <div class="copyright_info">
+                <p>
+                    <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11000002000088"
+                        target="_blank">京公网安备 11000002000088号</a><span class="copyright_split">|</span><span><a
+                            href="http://beian.miit.gov.cn" target="_blank">京ICP备11041704号</a></span><span
+                        class="copyright_split">|</span>
+                    <a href="//h5.m.jd.com/pc/dev/tMGhqLCH7hf87LucBj2NPHuyKAb/index.html" target="_blank"
+                        rel="noopener noreferrer">ICP</a><span class="copyright_split">|</span>
+                    <a href="//jdwp.jd.com/544-2927.html" target="_blank">互联网药品信息服务资格证编号(京)-经营性-2014-0008</a><span
+                        class="copyright_split">|</span><span>新出发京零 字第大120007号</span></p>
+                <p><span>互联网出版许可证编号新出网证(京)字150号</span><span class="copyright_split">|</span>
+                    <a href="//pro.jd.com/mall/active/3bVDLXHdwVmdQksGF8TtS7ocq1NY/index.html"
+                        target="_blank">出版物经营许可证</a><span class="copyright_split">|</span>
+                    <a href="//img10.360buyimg.com/ling/jfs/t1/164806/19/5070/567736/6017d6d6Eab06ec9c/d8ca6e029f495447.jpg"
+                        target="_blank">网络文化经营许可证京网文[2020]6112-1201号</a><span
+                        class="copyright_split">|</span><span>违法和不良信息举报电话：4006561155</span></p>
+                <p><span class="copyright_text">Copyright &copy; 2004 - <em id="copyright_year">2019</em> 京东JD.com
+                        版权所有</span><span class="copyright_split">|</span><span>消费者维权热线：4006067733</span>
+                    <a href="//pro.jd.com/mall/active/38PitHBfR7ZopNHRSHnuuWR5AMDL/index.html" target="_blank"
+                        class="copyright_license">经营证照</a>
+                    <span class="copyright_split">|</span>
+                    <span>(京)网械平台备字(2018)第00003号</span>
+                    <span class="copyright_split">|</span>
+                    <a href="//h5.m.jd.com/babelDiy/Zeus/ARcYnJ8coUdUecn6UQAN6TDaVmH/index.html" target="_blank"
+                        class="mod_business_license">营业执照</a>
+                    <span class="copyright_split">|</span>
+                    <a href="//h5.m.jd.com/pc/dev/3YxBvN6m5TsRyVCvDSeEh7awmLB4/index.html" target="_blank"
+                        rel="noopener noreferrer">增值电信业务经营许可证</a>
+                </p>
+                <p class="mod_copyright_inter">
+                    <a class="mod_copyright_inter_lk" href="//www.joybuy.com/?source=1&visitor_from=3" target="_blank"
+                        clstag="h|keycount|btm|btmnavi_null0501"><i
+                            class="mod_copyright_inter_ico mod_copyright_inter_ico_global"></i><span
+                            class="languagefont">&#xe901;</span></a>
+                    <span class="copyright_split">|</span>
+                    <a class="mod_copyright_inter_lk" href="//www.jd.ru/?source=1&visitor_from=3" target="_blank"
+                        clstag="h|keycount|btm|btmnavi_null0502"><i
+                            class="mod_copyright_inter_ico mod_copyright_inter_ico_rissia"></i><span
+                            class="languagefont">&#xe904;</span></a>
+                    <span class="copyright_split">|</span>
+                    <a class="mod_copyright_inter_lk" href="//www.jd.id/?source=1&visitor_from=3" target="_blank"
+                        clstag="h|keycount|btm|btmnavi_null0503"><i
+                            class="mod_copyright_inter_ico mod_copyright_inter_ico_indonesia"></i><span
+                            class="languagefont">&#xe902;</span></a>
+                    <span class="copyright_split">|</span>
+                    <a class="mod_copyright_inter_lk" href="//www.joybuy.es/?source=1&visitor_from=3" target="_blank"
+                        clstag="h|keycount|btm|btmnavi_null0504"><i
+                            class="mod_copyright_inter_ico mod_copyright_inter_ico_spain"></i><span
+                            class="languagefont">&#xe903;</span></a>
+                    <span class="copyright_split">|</span>
+                    <a class="mod_copyright_inter_lk" href="//www.jd.co.th/?source=1&visitor_from=3" target="_blank"
+                        clstag="h|keycount|btm|btmnavi_null0505"><i
+                            class="mod_copyright_inter_ico mod_copyright_inter_ico_thailand"></i><span
+                            class="languagefont">&#xe900;</span></a>
+                </p>
+                <p><span>京东旗下网站：</span>
+                    <a href="https://www.jdpay.com/" target="_blank">京东钱包</a><span class="copyright_split">|</span>
+                    <a href="https://www.jdcloud.com" target="_blank">京东云</a>
+                </p>
+            </div>
+            <p class="copyright_auth">
+                <script type="text/JavaScript">function CNNIC_change(eleId){var str= document.getElementById(eleId).href;var str1 =str.substring(0,(str.length-6));str1+=CNNIC_RndNum(6);
+        document.getElementById(eleId).href=str1;}function CNNIC_RndNum(k){var rnd=""; for (var i=0;i
+        < k;i++) rnd+=Math.floor(Math.random()*10); return rnd;};(function(){var d=new Date;document.getElementById(
+         "copyright_year").innerHTML=d.getFullYear()})();</script>
+                <a id="urlknet" class="copyright_auth_ico copyright_auth_ico_2" onclick="CNNIC_change('urlknet')"
+                    oncontextmenu="return false;" name="CNNIC_seal"
+                    href="https://ss.knet.cn/verifyseal.dll?sn=2008070300100000031&ct=df&pa=294005"
+                    target="_blank">可信网站信用评估</a>
+                <a class="copyright_auth_ico copyright_auth_ico_3" href="http://www.cyberpolice.cn/"
+                    target="_blank">网络警察提醒你</a>
+                <a class="copyright_auth_ico copyright_auth_ico_4"
+                    href="https://search.szfw.org/cert/l/CX20120111001803001836" target="_blank">诚信网站</a>
+                <a class="copyright_auth_ico copyright_auth_ico_5" href="http://www.12377.cn"
+                    target="_blank">网上有害信息举报专区</a>
+                <a class="copyright_auth_ico copyright_auth_ico_6" href="http://www.12377.cn/node_548446.htm"
+                    target="_blank">网络举报APP下载</a>
+                <a class="copyright_auth_ico copyright_auth_ico_7"
+                    href="http://ggfw.cnipa.gov.cn:8010/PatentCMS_Center?fromsite=www.jd.com" target="_blank"
+                    rel="noopener noreferrer"
+                    style="background-image: url(&quot;//img12.360buyimg.com/imagetools/jfs/t1/89057/27/24131/19491/621c3949E053e39b3/9e2e3ec54268ac9b.png&quot;);overflow: hidden;display: inline-block;width: 103px;height: 32px;line-height: 1000px;background-size: cover;">国家知识产权公共服务网</a>
+            </p>
+        </div>
+    </div>
+   <script src="./js/axios.js"></script>
+    <script type="text/javascript" src="./js/self.js"></script>
+    <!--
+<script type="text/javascript" src="/js/updatePetName.js"></script>
+-->
+  
+    </script>
+</body>
+
+</html>

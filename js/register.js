@@ -1,96 +1,42 @@
-$(function() {
-    var flag = 0;
-    $(".password img").click(function() {
-        if (flag == 0){
-            $(".password .inp").attr("type","text");
-            $(this).attr("src","images/open.png");
-            flag = 1;
-        } else {
-            $(".password .inp").attr("type","password");
-            $(this).attr("src","images/close.png");
-            flag = 0;
-        }
-    });
-    $(".repassword img").click(function() {
-        if (flag == 0){
-            $(".repassword .inp").attr("type","text");
-            $(this).attr("src","images/open.png");
-            flag = 1;
-        } else {
-            $(".repassword .inp").attr("type","password");
-            $(this).attr("src","images/close.png");
-            flag = 0;
-        }
-    });
+class Register {
 
-    $(".reg_form #tel").blur(function() {
-        if ($(this).val().length == 0) {
-            $(this).siblings("span").attr("class","hint");
-            $(this).siblings("span").children("i").attr("class","hint_icon");
-            $(this).siblings("span").children("em").text("请输入11位手机号码!");
-        } else {
-            if ($(this).val().length != 11) {
-                $(this).siblings("span").attr("class","error");
-                $(this).siblings("span").children("i").attr("class","error_icon");
-                $(this).siblings("span").children("em").text("手机号码格式不正确，请重新输入!");
+    constructor() {
+        this.formsubmit()
+
+    }
+    formsubmit() {
+        const form = document.forms[0]
+        console.log(form.tel);
+        form.addEventListener('submit', async e => {
+            e.preventDefault()
+            const name = form.tel.value
+            const pwd = form.psw.value
+            const rpwd = form.repsw.value
+            const nick = form.nickname.value
+            if (!name || !pwd || !rpwd || !nick) return alert('请填写完整表单')
+            if (pwd !== rpwd) return alert('两次密码不一致')
+            // 必须设置内容的类型,默认是json格式,server 是处理不了
+            axios.defaults.headers['Content-Type'] = 'application/x-www-form-urlencoded';
+            // 数据必须以原生的方式拼接好
+            let param = `username=${name}&password=${pwd}&rpassword=${rpwd}&nickname=${nick}`;
+            // 如果用户登录,则加数据信息添加到购物车中
+            let { data } = await axios.post('http://localhost:8888/users/register', param);
+            console.log(data.code);
+            if (data.code === 1) {
+                window.location.href = './login.html'
             } else {
-                $(this).siblings("span").attr("class","success");
-                $(this).siblings("span").children("i").attr("class","success_icon");
-                $(this).siblings("span").children("em").text("手机号码格式正确!");
-            }
-        }
-    });
+                layer.open({
+                    content: '注册失败:'+data.message,
+                    btn: ['重新注册']
 
-    $(".reg_form #psw").blur(function() {
-        if ($(this).val().length == 0) {
-            $(this).siblings("span").attr("class","hint");
-            $(this).siblings("span").children("i").attr("class","hint_icon");
-            $(this).siblings("span").children("em").text("请输入6~16位密码!");
-        } else {
-            if ($(this).val().length < 6 || $(this).val().length > 16) {
-                $(this).siblings("span").attr("class","error");
-                $(this).siblings("span").children("i").attr("class","error_icon");
-                $(this).siblings("span").children("em").text("密码格式不正确，请重新输入!");
-            } else {
-                $(this).siblings("span").attr("class","success");
-                $(this).siblings("span").children("i").attr("class","success_icon");
-                $(this).siblings("span").children("em").text("密码格式正确!");
+                })
+                return
             }
-        }
-    });
-
-    $(".reg_form #repsw").blur(function() {
-        if ($(this).val().length == 0) {
-            $(this).siblings("span").attr("class","hint");
-            $(this).siblings("span").children("i").attr("class","hint_icon");
-            $(this).siblings("span").children("em").text("请再次输入密码!");
-        } else {
-            if ($(this).val() != $(".reg_form #psw").val()) {
-                $(this).siblings("span").attr("class","error");
-                $(this).siblings("span").children("i").attr("class","error_icon");
-                $(this).siblings("span").children("em").text("密码前后不一致，请重新输入!");
-            } else {
-                $(this).siblings("span").attr("class","success");
-                $(this).siblings("span").children("i").attr("class","success_icon");
-                $(this).siblings("span").children("em").text("密码确认完毕!");
-            }
-        }
-    });
-
-    $("form").submit(function() {
-        if ($("#tel").val() == '') {
-            alert("手机号码不能为空!");
-        } else if ($("#code").val() == '') {
-            alert("短信验证码不能为空!");
-        } else if ($("#psw").val() == '') {
-            alert("密码不能为空!");
-        } else if ($("#repsw").val() == '') {
-            alert("确认密码不能为空!");
-        } else if (!$(".agree input[type='checkbox']").prop("checked")){
-            alert("请先同意《京东用户注册协议和隐私政策》协议。");
-        } else {
-            alert("注册成功!");
-            $("form").attr("action","login.html");
-        } 
-    });
-});
+        })
+    }
+    static $(tag) {
+        let res = document.querySelectorAll(tag)
+        return res.length == 1 ? res[0] : res
+    }
+}
+new Register

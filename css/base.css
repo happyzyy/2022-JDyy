@@ -346,3 +346,11 @@ footer a {
 		display: none;
 	}
 }
+.llo,.llo1{
+	display: none;
+
+}
+.llo.on.active,.llo.off.active,.llo1.on1.active,.llo1.off1.active
+ {
+	display: inline-block;
+}

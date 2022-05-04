@@ -1,81 +1,101 @@
-$(function() {
-    $(".preview_img").mouseover(function(e) {
-        $(this).children(".mask").show();
-        $(this).children(".big").show();
-    });
-    $(".preview_img").mouseout(function() {
-        $(this).children(".mask").hide();
-        $(this).children(".big").hide();
-    });
-    $(".preview_img").mousemove(function(e) {
-        var x = e.pageX -  this.offsetLeft;
-        var y = e.pageY -  this.offsetTop;
-        var maskX = x - parseInt($(this).children(".mask").css("width")) / 2;
-        var maskY = y - parseInt($(this).children(".mask").css("height")) / 2;
-        var maskMax = parseInt($(this).css("width")) - parseInt($(this).children(".mask").css("width"));
-        if (maskX <= 0) {
-            maskX = 0;
-        } else if (maskX >= maskMax) {
-            maskX = maskMax;
-        }
-        if (maskY <= 0) {
-            maskY = 0;
-        } else if (maskY >= maskMax) {
-            maskY = maskMax;
-        }
-        $(this).children(".mask").css("left" , maskX + 'px');
-        $(this).children(".mask").css("top" , maskY +'px');
-        var bigMax = parseInt($(".bigimg").css("width")) - parseInt($(".big").css("width"));
-        var bigX = maskX * bigMax / maskMax;
-        var bigY = maskY * bigMax / maskMax;
-        $(".bigimg").css("left" , -bigX + 'px');
-        $(".bigimg").css("top" , -bigY + 'px');
-    });
-    $(".list_item li").mouseover(function() {
-        $(this).addClass("current").siblings().removeClass("current");
-        $(".preview_img img").attr('src',$(this).children("img")[0].src);
-        $(".big img").attr('src',$(this).children("img")[0].src);
-    });
-    $(".choose_color a").click(function() {
-        $(this).addClass("current").siblings().removeClass("current");
-    });
-    $(".choose_version a").click(function() {
-        $(this).addClass("current").siblings().removeClass("current");
-    });
-    $(".choose_type a").click(function() {
-        $(this).addClass("current").siblings().removeClass("current");
-    });
+class Detail {
+    constructor() {
+        this.getGoodsInfo()
 
-    $(".reduce").mouseover(function() {
-        if ($(".choose_amount input[type='text']").val() <= 1) {
-            $(".reduce").css("cursor","not-allowed");
-        }
-        else {
-            $(".reduce").css("cursor","pointer");
-        }
-    });
-    $(".reduce").click(function() {
-        if ($(".choose_amount input[type='text']").val() <= 1) {
-            $(".reduce").css("cursor","not-allowed");
-        }
-        else {
-            $(".reduce").css("cursor","pointer");
-            num =  $(".choose_amount input[type='text']").val();
-            $(".choose_amount input[type='text']").val(num-1);
-        }
-    });
-    $(".add").click(function() {
-        num =  $(".choose_amount input[type='text']").val();
-        $(".choose_amount input[type='text']").val(Number(num)+1);
-    });
+    }
+    async getGoodsInfo() {
+        const goods_id = window.sessionStorage.getItem('goods_id')
+        // if (!goods_id) return window.location.href = './list.html'
 
-    $(".tab_list li").mouseover(function() {
-        $(this).addClass("current").siblings().removeClass("current");
-    });
+        const { data } = await axios.get('http://localhost:8888/goods/item?' + `id=${goods_id}`)
 
-    $(".detail_tab_list li").click(function() {
-        var index = $(this).index();
-        $(this).addClass("current").siblings().removeClass("current");
-        $(".item").eq(index).show().siblings().hide();
-    });
-});
+        console.log(data);
+        //  if()
+        if (data.code !== 1) return window.location.href = './list.html'
+        const contentBox = document.querySelector('.de_container')
+        contentBox.innerHTML = template('detail_temlate', data)
+        this.enlarge()
+    }
+    enlarge() {
+
+        //获取show 盒子  mask盒子 enlarge盒子 尺寸
+
+        this.show_width = Detail.$$('.preview_img>img').clientWidth
+        this.show_height = Detail.$$('.preview_img>img').clientHeight
+        this.mask_width = parseInt(window.getComputedStyle(Detail.$$('.mask')).width)
+        this.mask_height = parseInt(window.getComputedStyle(Detail.$$('.mask')).height)
+        this.bg_width = parseInt(window.getComputedStyle(Detail.$$('.bigimg')).width)
+        this.bg_height = parseInt(window.getComputedStyle(Detail.$$('.bigimg')).height)
+        this.enlarge_width = 0
+        this.enlarge_height = 0
+        this.setScale()
+        this.listchage()
+        this.bindEve()
+        this.move()
+
+        // var movar 
+    }
+    setScale() {
+        this.enlarge_width = this.bg_width * this.mask_width / this.show_width
+        this.enlarge_height = this.bg_height * this.mask_height / this.show_height
+        console.log(this.bg_height,this.mask_height,this.show_height);
+        Detail.$$('.big').style.width = this.enlarge_width + 'px'
+        Detail.$$('.big').style.height = this.enlarge_height + 'px'
+
+    }
+    listchage() {
+        Detail.$$('.list_item img').forEach((item) => {
+            item.onclick = function (e) {
+                for (var i = 0; i < Detail.$$('.list_item>li').length; i++) {
+                    Detail.$$('.list_item img')[i].parentElement.classList.remove('current')
+                }
+                e.target.parentElement.classList.add('current')
+                var show_url = e.target.dataset.show
+                console.log(show_url);
+                Detail.$$('.preview_img').firstElementChild.src = show_url
+                Detail.$$('.big').firstElementChild.src = show_url
+            }
+        })
+    }
+    bindEve() {
+        Detail.$$('.preview_img>img').onmouseover = function () {
+            Detail.$$('.mask').style.display = 'block'
+            Detail.$$('.big').style.display = 'block'
+        }
+        Detail.$$('.preview_img>img').onmouseout = function () {
+            Detail.$$('.mask').style.display = 'none'
+            Detail.$$('.big').style.display = 'none'
+        }
+    }
+    move() {
+        Detail.$$('.preview_img').onmousemove = (e) => {
+            var x = e.offsetX - this.mask_width / 2
+            var y = e.offsetY - this.mask_height / 2
+            // console.log(this.mask_height, x, y);
+            //边界值判断
+            if (x <= 0) x = 0
+            if (y <= 0) y = 0
+            if (x > this.show_width - this.mask_width)  x = this.show_width - this.mask_width
+            if (y > this.show_height - this.mask_height)  y = this.show_height - this.mask_height
+            //给mask赋值 让遮罩层移动
+            Detail.$$('.mask').style.left = x + 'px'
+            Detail.$$('.mask').style.top = y + 'px'
+            //按照固定的公式计算一个背景图片的移动尺寸
+            var bg_x = x * this.enlarge_width / this.mask_width * -1
+            var bg_y = y * this.enlarge_height / this.mask_height * -1
+
+            Detail.$$('.bigimg').style.left = bg_x + 'px'
+            Detail.$$('.bigimg').style.top = bg_y + 'px'
+            console.log(this.enlarge_height, bg_y);
+
+
+        }
+
+
+    }
+    static $$(tag) {
+        let res = document.querySelectorAll(tag)
+        return res.length == 1 ? res[0] : res;
+    }
+}
+new Detail
