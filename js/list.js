@@ -1,9 +1,10 @@
 class List {
+  goods_info = {
+    current: 1, pagesize: 12, search: '', saleType: 10, sortType: 'id', srotMethod: ' ASC', category: ''
+  }
   constructor() {
     // 等待promise 对象解包完成'
-    this.goods_info = {
-      current: 1, pagesize: 12, search: '', saleType: 10, sortType: 'id', srotMethod: ' ASC', category: ''
-    }
+
     // 给属性赋值,调用其它方法
     this.getCateList()
     this.getData();
@@ -125,8 +126,13 @@ class List {
   async getData() {
 
     console.log(this.goods_info);
-    let goods_info = List.queryStringify(this.goods_info)
-    let { data: { total, yourParams, code, list } } = await axios.get('http://localhost:8888/goods/list?' + goods_info)
+    // let goods_info = List.queryStringify(this.goods_info)
+    // let { data: { total, yourParams, code, list } } = await axios.get('http://localhost:8888/goods/list?' + goods_info)
+    // let goods_info = List.queryStringify(this.goods_info)
+    let { data: { total, yourParams, code, list } } = await axios.get('http://localhost:8888/goods/list', {
+      params: this.goods_info
+    })
+
     // console.log(list, total, yourParams);
     //判断返回值的状态,追加数据
     if (code !== 1) { return console.log('无服务器'); }
@@ -188,18 +194,18 @@ class List {
       // 数据必须以原生的方式拼接好
       // 如果用户登录,则加数据信息添加到购物车中
       let { data, status, data: { code } } = await axios.get('http://localhost:8888/users/info?' + `id=${userId}`);
-  let data1=data
+      let data1 = data
       if (status == 200) {
         console.log(data1);
         console.log(code);
         if (code !== 1) {
-           //实现登录注册的跳转
-          
-           List.$$('.on1')[0].classList.remove('active')
-           List.$$('.on1')[1].classList.remove('active')
-           List.$$('.off1')[0].classList.add('active')
-           List.$$('.off1')[1].classList.add('active')
-           
+          //实现登录注册的跳转
+
+          List.$$('.on1')[0].classList.remove('active')
+          List.$$('.on1')[1].classList.remove('active')
+          List.$$('.off1')[0].classList.add('active')
+          List.$$('.off1')[1].classList.add('active')
+
 
           layer.open({
             content: '当前用户未登录',
@@ -214,12 +220,12 @@ class List {
               //return false 开启该代码可禁止点击该按钮关闭
               return
             }
-           
+
           })
           return
         }
         List.$$('.on1')[0].innerText = data1.info.nickname
-        List.$$('.on1')[0].href='./self.html'
+        List.$$('.on1')[0].href = './self.html'
 
 
         axios.defaults.headers.common['authorization'] = token;
@@ -229,10 +235,10 @@ class List {
         let param = `id=${userId}&goodsId=${goodsId}`;
         // 如果用户登录,则加数据信息添加到购物车中
         let { data, status } = await axios.post('http://localhost:8888/cart/add', param);
+       
         // console.log(data);
         if (status == 200) {
           // console.log(data);
-          console.log(data.code);
           if (data.code !== 1) {
 
             layer.open({
@@ -252,6 +258,8 @@ class List {
             return
           }
           //实现库存限量 
+          console.log(data.code);
+
           await axios.get('http://localhost:8888/cart/list?' + `id=${userId}`)
             .then(res => {
 

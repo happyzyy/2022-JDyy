@@ -37,10 +37,18 @@ class Cart {
     let { data, status, data: { cart } } = await axios.get('http://localhost:8888/cart/list?id=' + userId);
     // if (status == 200) {
     // 判断是否超过有效期,过期则跳转到登录页面
-    if (data.code !== 1) location.assign('./login.html?ReturnUrl=./cart.html')
-    console.log(cart);
-
+    if (data.code !== 1) {
+      location.assign('./login.html?ReturnUrl=./cart.html')
+      List.$$('.on1')[0].classList.remove('active')
+      List.$$('.on1')[1].classList.remove('active')
+      List.$$('.off1')[0].classList.add('active')
+      List.$$('.off1')[1].classList.add('active')
+    } console.log(data);
+  
+   
     this.getCartGoods(cart)
+    
+    Cart.$$('.on1')[0].href='./self.html'
 
   }
   // 获取购物车中的数据
@@ -80,7 +88,7 @@ class Cart {
       console.log(data, status);
       if (data.code !== 1) return location.assign('./login.html?ReturnUrl=./cart.html')
       this.checkLogtminsin()
-
+      
     }
     // 判断是否有div1个class,是则点击的为删除按钮
     if (target.parentNode.classList.contains('del1')) {

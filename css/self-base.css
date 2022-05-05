@@ -171,8 +171,8 @@ a:hover {
 
 @font-face {
     font-family: iconfont;
-    src: url(//misc.360buyimg.com/jdf/1.0.0/unit/ui-base/5.0.0/font/iconfont.eot);
-    src: url(//misc.360buyimg.com/jdf/1.0.0/unit/ui-base/5.0.0/font/iconfont.eot#iefix) format("embedded-opentype"), url(//misc.360buyimg.com/jdf/1.0.0/unit/ui-base/5.0.0/font/iconfont.woff) format("woff"), url(//misc.360buyimg.com/jdf/1.0.0/unit/ui-base/5.0.0/font/iconfont.ttf) format("truetype"), url(//misc.360buyimg.com/jdf/1.0.0/unit/ui-base/5.0.0/font/iconfont.svg#iconfont) format("svg")
+    /* src: url(//misc.360buyimg.com/jdf/1.0.0/unit/ui-base/5.0.0/font/iconfont.eot); */
+    /* src: url(//misc.360buyimg.com/jdf/1.0.0/unit/ui-base/5.0.0/font/iconfont.eot#iefix) format("embedded-opentype"), url(//misc.360buyimg.com/jdf/1.0.0/unit/ui-base/5.0.0/font/iconfont.woff) format("woff"), url(//misc.360buyimg.com/jdf/1.0.0/unit/ui-base/5.0.0/font/iconfont.ttf) format("truetype"), url(//misc.360buyimg.com/jdf/1.0.0/unit/ui-base/5.0.0/font/iconfont.svg#iconfont) format("svg") */
 }
 
 .iconfont {
@@ -543,14 +543,14 @@ a:hover {
     display: block;
     width: 38px;
     height: 16px;
-    background: #d7d4cb url(//misc.360buyimg.com/jdf/1.0.0/unit/shortcut/5.0.0/i/user-plus-status.png) no-repeat 0 -68px
+    /* background: #d7d4cb url(//misc.360buyimg.com/jdf/1.0.0/unit/shortcut/5.0.0/i/user-plus-status.png) no-repeat 0 -68px */
 }
 
 #shortcut-2014 #ttbar-login .icon-plus-dropdown {
     display: block;
     width: 80px;
     height: 16px;
-    background: url(//misc.360buyimg.com/jdf/1.0.0/unit/shortcut/5.0.0/i/user-plus-status.png) no-repeat 0 -34px
+    /* background: url(//misc.360buyimg.com/jdf/1.0.0/unit/shortcut/5.0.0/i/user-plus-status.png) no-repeat 0 -34px */
 }
 
 #shortcut-2014 #ttbar-login .icon-plus-state0 .icon-plus-nickname {
@@ -591,7 +591,7 @@ a:hover {
 
 #shortcut-2014 #ttbar-login .icon-plus-state3 .u-pic img {
     padding: 2px;
-    background: url(//misc.360buyimg.com/jdf/1.0.0/unit/shortcut/5.0.0/i/user-plus-img-bg.png) no-repeat;
+    /* background: url(//misc.360buyimg.com/jdf/1.0.0/unit/shortcut/5.0.0/i/user-plus-img-bg.png) no-repeat; */
     background: none\0;
     *background: 0 0
 }
@@ -704,13 +704,13 @@ a:hover {
     width: 56px;
     height: 56px;
     margin: 0 auto;
-    background-image: url(//misc.360buyimg.com/jdf/1.0.0/unit/shortcut/5.0.0/i/user-medal24.png);
-    _background-image: url(//misc.360buyimg.com/jdf/1.0.0/unit/shortcut/5.0.0/i/user-medal8.png);
+    /* background-image: url(//misc.360buyimg.com/jdf/1.0.0/unit/shortcut/5.0.0/i/user-medal24.png); */
+    /* _background-image: url(//misc.360buyimg.com/jdf/1.0.0/unit/shortcut/5.0.0/i/user-medal8.png); */
     background-repeat: no-repeat
 }
 
 #shortcut-2014 #ttbar-login .badge-panel .has-gbzx, #shortcut-2014 #ttbar-login .badge-panel .has-jxzlb, #shortcut-2014 #ttbar-login .badge-panel .has-plus, #shortcut-2014 #ttbar-login .badge-panel .has-sdtk, #shortcut-2014 #ttbar-login .badge-panel .has-smhx, #shortcut-2014 #ttbar-login .badge-panel .has-srtq, #shortcut-2014 #ttbar-login .badge-panel .has-yfdm, #shortcut-2014 #ttbar-login .badge-panel .has-yfsm, #shortcut-2014 #ttbar-login .badge-panel .has-yjdx, #shortcut-2014 #ttbar-login .badge-panel .hasnt-gbzx, #shortcut-2014 #ttbar-login .badge-panel .hasnt-jxzlb, #shortcut-2014 #ttbar-login .badge-panel .hasnt-plus, #shortcut-2014 #ttbar-login .badge-panel .hasnt-sdtk, #shortcut-2014 #ttbar-login .badge-panel .hasnt-smhx, #shortcut-2014 #ttbar-login .badge-panel .hasnt-srtq, #shortcut-2014 #ttbar-login .badge-panel .hasnt-yfdm, #shortcut-2014 #ttbar-login .badge-panel .hasnt-yfsm, #shortcut-2014 #ttbar-login .badge-panel .hasnt-yjdx {
-    background-image: url(//misc.360buyimg.com/jdf/1.0.0/unit/shortcut/5.0.0/i/sprite.shortcutUserinfo.png)
+    /* background-image: url(//misc.360buyimg.com/jdf/1.0.0/unit/shortcut/5.0.0/i/sprite.shortcutUserinfo.png) */
 }
 
 #shortcut-2014 #ttbar-login .badge-panel .has-plus {
@@ -808,12 +808,12 @@ a:hover {
 }
 
 #shortcut-2014 #ttbar-login .badge-panel-main .fore1 i {
-    background-image: url(//misc.360buyimg.com/jdf/1.0.0/unit/shortcut/5.0.0/i/sprite.shortcutUserinfo.png);
+    /* background-image: url(//misc.360buyimg.com/jdf/1.0.0/unit/shortcut/5.0.0/i/sprite.shortcutUserinfo.png); */
     background-position: 0 0
 }
 
 #shortcut-2014 #ttbar-login .badge-panel-main .fore1.u-dis i {
-    background-image: url(//misc.360buyimg.com/jdf/1.0.0/unit/shortcut/5.0.0/i/sprite.shortcutUserinfo.png);
+    /* background-image: url(//misc.360buyimg.com/jdf/1.0.0/unit/shortcut/5.0.0/i/sprite.shortcutUserinfo.png); */
     background-position: -56px 0
 }
 
